@@ -1,4 +1,9 @@
 export function MemeComponent() {
+
+    function getImage () {
+        const memesArray = memesData
+    }
+
 	return (
 		<main>
 			<div className="form">
