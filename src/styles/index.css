@@ -4,6 +4,7 @@
 
 body {
 	font-family: "Karla", sans-serif;
+	margin: 0;
 }
 
 main {
@@ -17,21 +18,21 @@ main {
 	background: linear-gradient(90deg, #16a085 1.18%, #2ecc71 100%);
 	color: white;
 	padding: 20px;
+	border: solid black
 }
 
 .header--image {
 	height: 100%;
 	margin-right: 6px;
-	padding: 0;
 }
 
 .header--title {
-	font-size: 20px;
+	font-size: 1.25rem;
 	margin-right: auto;
 }
 
 .header--project {
-	font-size: 16px;
+	font-size: 0.75rem;
 	font-weight: 500;
 }
 
@@ -39,6 +40,8 @@ main {
 	display: grid;
 	grid-template: 40px 40px / 1fr 1fr;
 	gap: 17px;
+	margin-bottom: 17px;
+	border: solid black
 }
 
 .form--input {
@@ -56,4 +59,40 @@ main {
 	color: white;
 	border: none;
 	cursor: pointer;
+}
+
+.meme {
+	position: relative;
+	border: solid red
+}
+
+.meme--image {
+	max-width: 100%;
+	border-radius: 3px;
+}
+
+.meme--text {
+	position: absolute;
+	width: 80%;
+	text-align: center;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 15px 0;
+	padding: 0 5px;
+	font-family: impact, sans-serif;
+	font-size: 2em;
+	text-transform: uppercase;
+	color: white;
+	letter-spacing: 1px;
+	text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
+		-2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
+		2px 2px 5px #000;
+}
+
+.bottom {
+	bottom: 0;
+}
+
+.top {
+	top: 0;
 }
