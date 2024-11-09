@@ -9,9 +9,12 @@ export function MemeComponent() {
 	const [allMemes, setAllMemes] = useState([]);
 
 	useEffect(() => {
-		fetch("https://api.imgflip.com/get_memes")
-			.then((res) => res.json())
-			.then((data) => setAllMemes(data.data.memes));
+		async function getMemes() {
+			const res = await fetch("https://api.imgflip.com/get_memes");
+			const data = await res.json();
+			setAllMemes(data.data.memes);
+		}
+		getMemes();
 	}, []);
 
 	console.log(allMemes);
@@ -35,54 +38,57 @@ export function MemeComponent() {
 
 	return (
 		<main>
-			<div className="form--container">
-				<form action="">
-					
-					<label
-						htmlFor="top-text"
-						aria-label="top text"
-						className="form--input top"
-					>
-						Top text:
-					</label>
-					<input
-						id="top-text"
-						className="form--input"
-						placeholder="Top text"
-						type="text"
-						name="topText"
-						value={meme.topText}
-						onChange={handleChange}
-					/>{" "}
-					<label
-						htmlFor="bottom-text"
-						aria-label="bottom text"
-						className="form--input bottom"
-					>
-						Bottom text:
-					</label>
-					<input
-						id="bottom-text"
-						className="form--input"
-						placeholder="Bottom text"
-						type="text"
-						name="bottomText"
-						value={meme.bottomText}
-						onChange={handleChange}
-					/>
-					<button className="form--button" type="submit" onClick={getMemeImage}>
-						Create Meme &#128171;
-					</button>
-					<div className="meme">
-						<img
-							className="meme--image"
-							src={meme.randomImage}
-							alt="random meme image"
-						/>
-						<h2 className="meme--text top">{meme.topText}</h2>
-						<h2 className="meme--text bottom">{meme.bottomText}</h2>
+			<div className="form">
+				<div className="input--group">
+					<div className="form--input top">
+						<label
+							htmlFor="top--text"
+							aria-label="top text"
+							className="form--input top label"
+						>
+							Top text:
+						</label>
+						<input
+							id="top--text"
+							className="form--input top input"
+							placeholder="Top text"
+							type="text"
+							name="topText"
+							value={meme.topText}
+							onChange={handleChange}
+						/>{" "}
 					</div>
-				</form>
+					<div className="form--input bottom">
+						<label
+							htmlFor="bottom-text"
+							aria-label="bottom text"
+							className="form--input bottom label"
+						>
+							Bottom text:
+						</label>
+						<input
+							id="bottom-text"
+							className="form--input bottom input"
+							placeholder="Bottom text"
+							type="text"
+							name="bottomText"
+							value={meme.bottomText}
+							onChange={handleChange}
+						/>
+					</div>
+				</div>
+				<button className="form--button" type="submit" onClick={getMemeImage}>
+					Create Meme &#128171;
+				</button>
+				<div className="meme">
+					<img
+						className="meme--image"
+						src={meme.randomImage}
+						alt="random meme image"
+					/>
+					<h2 className="meme--text top">{meme.topText}</h2>
+					<h2 className="meme--text bottom">{meme.bottomText}</h2>
+				</div>
 			</div>
 		</main>
 	);
