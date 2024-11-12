@@ -1,5 +1,7 @@
 # Meme Generator 💌
 
+Check it out live: https://grannyyetta-meme-generator.netlify.app
+
 A fun, interactive meme generator built with React! Create custom memes with ease by adding top and bottom text to a randomly generated image. This project uses the [Imgflip API](https://api.imgflip.com/) to fetch a collection of meme images.
 
 ## Features
